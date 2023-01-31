@@ -1,5 +1,5 @@
 {
-    "name": "PlayerActions - Copy",
+    "name": "PlayerActionsBlockHeads",
     "maps": [
         {
             "name": "Player",
@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "4f774c7e-cdc4-406f-ae90-9e83f28c4417",
                     "expectedControlType": "Vector2",
                     "processors": "",
