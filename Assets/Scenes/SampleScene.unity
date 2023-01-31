@@ -1326,7 +1326,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553659590}
-  m_LocalRotation: {x: 0.05466647, y: 0.055906504, z: -0.0030656115, w: 0.99693364}
+  m_LocalRotation: {x: 0.054666474, y: 0.055906504, z: -0.0030656115, w: 0.99693364}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1530,7 +1530,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 1960659999}
+  jumpAction:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d3de5fec-454a-4fe4-ad38-63b79f26bf57
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   speed: 15
+  gravity: 9.81
+  jumpForce: 0
 --- !u!143 &1960659999
 CharacterController:
   m_ObjectHideFlags: 0
