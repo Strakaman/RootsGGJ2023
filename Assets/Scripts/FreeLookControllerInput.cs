@@ -20,6 +20,10 @@ public class FreeLookControllerInput : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt))
+        {
+            return;
+        }
         //Normalize the vector to have an uniform vector in whichever form it came from (I.E Gamepad, mouse, etc)
         Vector2 lookMovement = camMoveInput.normalized;
         lookMovement.y = InvertY ? -lookMovement.y : lookMovement.y;
