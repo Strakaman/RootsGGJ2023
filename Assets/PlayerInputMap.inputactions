@@ -1,5 +1,5 @@
 {
-    "name": "PlayerActionsBlockHeads",
+    "name": "PlayerInputMap",
     "maps": [
         {
             "name": "Player",
