@@ -39,7 +39,7 @@ public class FreeLookControllerInput : MonoBehaviour
     // Update the look movement each time the event is trigger
     public void OnLook(InputAction.CallbackContext context)
     {
-        Debug.Log("event man: " + context.ReadValue<Vector2>());
+        Debug.Log("Look Axis Changed: " + context.ReadValue<Vector2>());
         camMoveInput = context.ReadValue<Vector2>();
     }
 }
