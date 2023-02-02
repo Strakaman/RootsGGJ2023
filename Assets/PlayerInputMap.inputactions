@@ -1,5 +1,5 @@
 {
-    "name": "PlayerActionsBlockHeads",
+    "name": "PlayerInputMap",
     "maps": [
         {
             "name": "Player",
@@ -16,7 +16,7 @@
                 },
                 {
                     "name": "Look",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "44112a45-bb72-4b13-b711-10119c170313",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -166,8 +166,8 @@
                 },
                 {
                     "name": "",
-                    "id": "8c8e490b-c610-4785-884f-f04217b23ca4",
-                    "path": "<Mouse>/position",
+                    "id": "264c88db-069b-4bd4-b836-00c3e1c724d2",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
