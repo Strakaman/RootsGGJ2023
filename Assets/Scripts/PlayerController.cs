@@ -22,7 +22,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.U)) { getCameraInputVector(); }
-        Vector3 moveVector = getCameraInputVector() * Time.deltaTime * speed;
+        Vector3 inputVector = getCameraInputVector();
+        UpdateRotation(inputVector);
+        Vector3 moveVector = inputVector * Time.deltaTime * speed;
         if (characterController.isGrounded)
         {
             //moveVector.y = -1f;
@@ -64,7 +66,6 @@ public class PlayerController : MonoBehaviour
     }
     private void LateUpdate()
     {
-        UpdateRotation();
         Vector3 worldSpaceVelocity = characterController.velocity;
         Vector3 localVelocity = transform.InverseTransformDirection(worldSpaceVelocity);
         animator.SetFloat("Speed", Vector3.Magnitude(localVelocity));
@@ -73,16 +74,17 @@ public class PlayerController : MonoBehaviour
     public void GetMovementInput(InputAction.CallbackContext callbackContext)
     {
         moveInput = callbackContext.ReadValue<Vector2>();
-        Debug.Log("Look Axis Changed: " + moveInput);
+        Debug.Log("Move Axis Changed: " + moveInput);
 
         //Debug.Log("Movement Input: " + movementVector);
         //transform.Rotate(new Vector3(0, movementVector.y, 0));
         //characterController.Move(new Vector3(movementVector.x, 0, movementVector.y));
     }
 
-    public void UpdateRotation()
+    public void UpdateRotation(Vector3 movingDirection)
     {
-        Quaternion targetRotation = Quaternion.LookRotation(new Vector3(moveInput.x, 0, moveInput.y));
+        if (moveInput.Equals(Vector2.zero)) { return; } //stop autosnapping back to 0 when player has given no movement
+        Quaternion targetRotation = Quaternion.LookRotation(movingDirection);
         Debug.LogWarning("Target Rotation: " + targetRotation);
         transform.rotation = targetRotation;
     }
