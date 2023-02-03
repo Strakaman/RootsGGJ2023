@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,16 +13,27 @@ public class PlayerController : MonoBehaviour
     public float gravity = 9.81f;
     public float jumpForce;
     protected Animator animator;
+    public CinemachineInputProvider cameraControls;
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U)) { getCameraInputVector(); }
+        if (cameraControls != null)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt))
+            {
+                cameraControls.enabled = false;
+            }
+            if (Input.GetKeyUp(KeyCode.LeftAlt) || Input.GetKeyUp(KeyCode.RightAlt))
+            {
+                cameraControls.enabled = true;
+            }
+        }
         Vector3 inputVector = getCameraInputVector();
         UpdateRotation(inputVector);
         Vector3 moveVector = inputVector * Time.deltaTime * speed;
@@ -74,19 +86,29 @@ public class PlayerController : MonoBehaviour
     public void GetMovementInput(InputAction.CallbackContext callbackContext)
     {
         moveInput = callbackContext.ReadValue<Vector2>();
-        Debug.Log("Move Axis Changed: " + moveInput);
-
-        //Debug.Log("Movement Input: " + movementVector);
-        //transform.Rotate(new Vector3(0, movementVector.y, 0));
-        //characterController.Move(new Vector3(movementVector.x, 0, movementVector.y));
+        //Debug.Log("Move Axis Changed: " + moveInput);
     }
 
     public void UpdateRotation(Vector3 movingDirection)
     {
         if (moveInput.Equals(Vector2.zero)) { return; } //stop autosnapping back to 0 when player has given no movement
         Quaternion targetRotation = Quaternion.LookRotation(movingDirection);
-        Debug.LogWarning("Target Rotation: " + targetRotation);
+        //Debug.Log("Target Rotation: " + targetRotation);
         transform.rotation = targetRotation;
     }
 
+    private int val = 0;
+    public void AttackPressed(InputAction.CallbackContext callbackContext)
+    {
+        val++;
+        if (val > 3)
+        {
+            val = 1;
+        }
+        animator.SetTrigger("Attack" + val);
+    }
+    void Hit()
+    {
+
+    }
 }
