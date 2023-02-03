@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class IdleCombatState : State
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void ProcessInput(InputAction action)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.ProcessInput(action);
+        if (action.name.Equals("Attack"))
+        {
+            stateMachine.SetNextState(new Attack1State());
+        }
     }
 }

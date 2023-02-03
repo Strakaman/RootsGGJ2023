@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 
 public class CombatStateMachine : StateMachine
 {
+    public Collider hitBox;
+    public GameObject hitEffect;
+
     public void AttackPressed(InputAction.CallbackContext callbackContext)
     {
         if (callbackContext.performed)
