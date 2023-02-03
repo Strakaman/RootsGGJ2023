@@ -3,11 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+public enum EnemyType
+{
+    None,
+    Carrot,
+    Daikon,
+    Garlic,
+    Onion
+};
+
 /// <summary>
 /// Base class for all the enemies in the game, Superclasses are intended to mostly only change how the enemy paths its run away function
 /// </summary>
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] public EnemyType enemyType;
     [SerializeField] public GameObject playerReference;
     [SerializeField] public float personalSpaceRange;
     [SerializeField] protected int distanceToRunAway;
@@ -25,14 +35,18 @@ public class Enemy : MonoBehaviour
 
     public int CurrentHealth { get => currentHealth; }
 
-    void Start()
+    protected virtual void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+    }
+
+    protected virtual void Start()
+    {
         InitializeHealthAndMaxSpeed();
     }
 
-    void Update()
+    protected virtual void Update()
     {
         //if not running and player is within personalSpaceRange, trigger RunAway
         if (!runAwayTriggered && DistanceBetween(playerReference.transform.position, transform.position) <= personalSpaceRange)
