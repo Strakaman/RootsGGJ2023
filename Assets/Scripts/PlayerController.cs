@@ -97,16 +97,7 @@ public class PlayerController : MonoBehaviour
         transform.rotation = targetRotation;
     }
 
-    private int val = 0;
-    public void AttackPressed(InputAction.CallbackContext callbackContext)
-    {
-        val++;
-        if (val > 3)
-        {
-            val = 1;
-        }
-        animator.SetTrigger("Attack" + val);
-    }
+    //attack animation fires a "Hit" event so keep here for now
     void Hit()
     {
 

@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CombatStateMachine : StateMachine
 {
-    // Start is called before the first frame update
-    void Start()
+    public void AttackPressed(InputAction.CallbackContext callbackContext)
     {
-        
+        if (callbackContext.performed)
+        {
+            Debug.Log("Attack pressed");
+            CurrentState.ProcessInput(callbackContext.action);
+            //animator.SetTrigger("Attack" + val);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

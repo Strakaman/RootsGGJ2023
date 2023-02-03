@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5958081239450235572}
   - component: {fileID: 7540778562296397106}
   - component: {fileID: 2772465908401266065}
-  - component: {fileID: 6754350290596099200}
+  - component: {fileID: 1838917136527799034}
   m_Layer: 0
   m_Name: PotatoDonoPlayer
   m_TagString: Untagged
@@ -207,7 +207,7 @@ MonoBehaviour:
   gravity: 9.81
   jumpForce: 0
   cameraControls: {fileID: 0}
---- !u!114 &6754350290596099200
+--- !u!114 &1838917136527799034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,9 +216,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6678113656567228}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6507e4ad67db99408c289842c8e39be, type: 3}
+  m_Script: {fileID: 11500000, guid: 7efcf79f7ceb7824a9e78c3ae59b31e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customName: Combat
 --- !u!1 &275793769463617255
 GameObject:
   m_ObjectHideFlags: 0

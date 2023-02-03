@@ -4,10 +4,10 @@ public class StateMachine : MonoBehaviour
 {
     public string customName; 
 
-    private State mainStateType; // default/starting state for this machine
+    protected State mainStateType; // default/starting state for this machine
 
     public State CurrentState { get; private set; }
-    private State nextState;
+    protected State nextState;
 
     // Update is called once per frame
     void Update()

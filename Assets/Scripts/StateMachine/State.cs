@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public abstract class State
 {
@@ -12,7 +13,6 @@ public abstract class State
     {
         stateMachine = _stateMachine;
     }
-
 
     public virtual void OnUpdate()
     {
@@ -33,6 +33,10 @@ public abstract class State
 
     }
 
+    public virtual void ProcessInput(InputAction action)
+    {
+
+    }
     #region Passthrough Methods
 
     /// <summary>
