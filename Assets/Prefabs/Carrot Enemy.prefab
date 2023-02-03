@@ -909,6 +909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerReference: {fileID: 0}
   personalSpaceRange: 15
+  distanceToRunAway: 20
   maxHealth: 3
   currentHealth: 0
   baseMaxSpeed: 6

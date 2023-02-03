@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] public GameObject playerReference;
     [SerializeField] public float personalSpaceRange;
+    [SerializeField] protected int distanceToRunAway;
     protected NavMeshAgent agent;
     protected Animator animator;
     protected Vector3 runAwayPoint;
@@ -33,7 +34,6 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(transform.position);
         //if not running and player is within personalSpaceRange, trigger RunAway
         if (!runAwayTriggered && DistanceBetween(playerReference.transform.position, transform.position) <= personalSpaceRange)
         {
@@ -41,10 +41,9 @@ public class Enemy : MonoBehaviour
         }
 
         //if at (or close to) runAwayPoint, set the running trigger to false
-        if (DistanceBetween(transform.position, runAwayPoint) <= 0.1)
+        if (DistanceBetween(transform.position, runAwayPoint) <= 0.1 || agent.velocity == Vector3.zero)
         {
-            animator.SetBool("isRunning", false);
-            runAwayTriggered = false;
+            StopRunAway();
         }
     }
 
@@ -68,10 +67,15 @@ public class Enemy : MonoBehaviour
         runAwayTriggered = true;
         animator.SetBool("isRunning", true);
         Vector3 directionFromPlayer = (playerPosition - transform.position).normalized;
-        Debug.Log(directionFromPlayer);
-        Vector3 destination = new Vector3(directionFromPlayer.x * 15, directionFromPlayer.y, directionFromPlayer.z * 15);
-        runAwayPoint = transform.position - destination;
+        Vector3 offsetForDestination = new Vector3(directionFromPlayer.x * distanceToRunAway, directionFromPlayer.y, directionFromPlayer.z * distanceToRunAway);
+        runAwayPoint = transform.position - offsetForDestination;
         agent.destination = runAwayPoint;
+    }
+
+    protected void StopRunAway()
+    {
+        animator.SetBool("isRunning", false);
+        runAwayTriggered = false;
     }
 
     protected float DistanceBetween(Vector3 pointA, Vector3 pointB)
@@ -97,13 +101,19 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+
         if (currentHealth <= 0)
         {
             //trigger death stuff
         }
         else
         {
-            agent.speed = baseMaxSpeed * (currentHealth / maxHealth);
+            ReduceMaxSpeed();
         }
+    }
+
+    protected void ReduceMaxSpeed()
+    {
+        agent.speed = baseMaxSpeed * (currentHealth / maxHealth);
     }
 }
