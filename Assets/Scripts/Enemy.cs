@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public GameObject playerReference;
     [SerializeField] public float personalSpaceRange;
     protected NavMeshAgent agent;
+    protected Animator animator;
     protected Vector3 runAwayPoint;
     protected bool runAwayTriggered = false;
 
@@ -26,20 +27,23 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         InitializeHealthAndMaxSpeed();
     }
 
     void Update()
     {
+        Debug.Log(transform.position);
         //if not running and player is within personalSpaceRange, trigger RunAway
         if (!runAwayTriggered && DistanceBetween(playerReference.transform.position, transform.position) <= personalSpaceRange)
         {
-            TriggerRunAway();
+            TriggerRunAway(playerReference.transform.position);
         }
 
         //if at (or close to) runAwayPoint, set the running trigger to false
         if (DistanceBetween(transform.position, runAwayPoint) <= 0.1)
         {
+            animator.SetBool("isRunning", false);
             runAwayTriggered = false;
         }
     }
@@ -52,6 +56,21 @@ public class Enemy : MonoBehaviour
         //base RunAway function, runs towards the testing target
         runAwayTriggered = true;
         runAwayPoint = target.position;
+        agent.destination = runAwayPoint;
+    }
+
+    /// <summary>
+    /// Triggers the enemy to run away from the player in the opposite direction using the NavMesh system
+    /// </summary>
+    /// <param name="playerPosition">Current position of player at time of trigger</param>
+    protected virtual void TriggerRunAway(Vector3 playerPosition)
+    {
+        runAwayTriggered = true;
+        animator.SetBool("isRunning", true);
+        Vector3 directionFromPlayer = (playerPosition - transform.position).normalized;
+        Debug.Log(directionFromPlayer);
+        Vector3 destination = new Vector3(directionFromPlayer.x * 15, directionFromPlayer.y, directionFromPlayer.z * 15);
+        runAwayPoint = transform.position - destination;
         agent.destination = runAwayPoint;
     }
 
