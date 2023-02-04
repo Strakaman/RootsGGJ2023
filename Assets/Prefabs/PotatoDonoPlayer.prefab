@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 818644788821929734}
   - component: {fileID: 6754350290596099452}
   - component: {fileID: 5958081239450235572}
+  - component: {fileID: 6376781983053929827}
   - component: {fileID: 7540778562296397106}
   - component: {fileID: 2772465908401266065}
   - component: {fileID: 1838917136527799034}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PotatoDonoPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,6 +80,26 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 4.1, z: 0}
+--- !u!114 &6376781983053929827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6678113656567228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec173074bce21f948b545cb2b853586c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  currentHealth: 0
+  healthLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7540778562296397106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,9 +491,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1681385857820419118}
   - component: {fileID: 6202980280082940935}
-  m_Layer: 0
+  - component: {fileID: 9118563647140528187}
+  m_Layer: 6
   m_Name: MeleeHitBox
-  m_TagString: Untagged
+  m_TagString: HitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -505,6 +527,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9118563647140528187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2788363503189672487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6590645edb04a4e84d20bc03d4a2df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2833845651322290880
 GameObject:
   m_ObjectHideFlags: 0

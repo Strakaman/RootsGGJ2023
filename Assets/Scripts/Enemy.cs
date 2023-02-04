@@ -23,27 +23,27 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected int distanceToRunAway;
     protected NavMeshAgent agent;
     protected Animator animator;
+    protected Health myHealth;
     protected Vector3 runAwayPoint;
     protected bool runAwayTriggered = false;
 
-    [SerializeField] public int maxHealth;
-    public int currentHealth;
     [SerializeField] protected float baseMaxSpeed;
 
     //only for testing a destination
     [SerializeField] public Transform target;
 
-    public int CurrentHealth { get => currentHealth; }
-
     protected virtual void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        myHealth = GetComponent<Health>();
     }
 
     protected virtual void Start()
     {
-        InitializeHealthAndMaxSpeed();
+        InitializeMaxSpeed();
+        myHealth.AddDeathListener(Die);
+        myHealth.AddHealthLostListener(HealthLost);
     }
 
     protected virtual void Update()
@@ -102,32 +102,30 @@ public class Enemy : MonoBehaviour
     }
 
     //Makes sure the starting health and speed are properly set
-    protected void InitializeHealthAndMaxSpeed()
+    protected void InitializeMaxSpeed()
     {
-        currentHealth = maxHealth;
         agent.speed = baseMaxSpeed;
     }
 
-    /// <summary>
-    /// Reduces currentHealth and then reduces runAwaySpeed based on ratio of remaining health
-    /// </summary>
-    /// <param name="damage">Amount of damage dealt by attack</param>
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-
-        if (currentHealth <= 0)
-        {
-            //trigger death stuff
-        }
-        else
-        {
-            ReduceMaxSpeed();
-        }
-    }
 
     protected void ReduceMaxSpeed()
     {
-        agent.speed = baseMaxSpeed * (currentHealth / maxHealth);
+        agent.speed = baseMaxSpeed * (myHealth.CurrentHealth / myHealth.MaxHealth);
+    }
+
+    public void TakeHit(int damage)
+    {
+        myHealth.TakeDamage(damage);
+        //need glow effect for getting hit and such
+    }
+
+    public void Die()
+    {
+
+    }
+
+    public void HealthLost()
+    {
+        ReduceMaxSpeed();
     }
 }

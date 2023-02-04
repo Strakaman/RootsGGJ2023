@@ -7,16 +7,19 @@ public class Attack2State : MeleeBaseState
     public override void OnUpdate()
     {
         base.OnUpdate();
-        if (fixedtime >= duration)
+        //Debug.Log(animator.GetFloat("AnimationCancel.Open"));
+
+
+        if (shouldCombo && animator.GetFloat("AnimationCancel.Open") > 0)
         {
-            if (shouldCombo)
-            {
-                stateMachine.SetNextState(new Attack3State());
-            }
-            else
-            {
-                stateMachine.SetNextStateToMain();
-            }
+            //even though the beginning of the animation clip is supposed to set it back to 0, it's instead LERPing back
+            animator.SetFloat("AnimationCancel.Open", 0);
+
+            stateMachine.SetNextState(new Attack3State());
+        }
+        else if (fixedtime >= duration)
+        {
+            stateMachine.SetNextStateToMain();
         }
     }
 
@@ -24,7 +27,7 @@ public class Attack2State : MeleeBaseState
     {
         base.OnEnter(_stateMachine);
         attackIndex = 2;
-        duration = 0.5f;
+        duration = 1.2f;
         animator.SetTrigger("Attack" + attackIndex);
         Debug.Log("Entering Player Attack " + attackIndex);
     }

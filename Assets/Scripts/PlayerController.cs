@@ -13,11 +13,13 @@ public class PlayerController : MonoBehaviour
     public float gravity = 9.81f;
     public float jumpForce;
     protected Animator animator;
+    protected CombatStateMachine combatStateMachine;
     public CinemachineInputProvider cameraControls;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        combatStateMachine = GetComponent<CombatStateMachine>();
     }
 
     // Update is called once per frame
@@ -46,7 +48,10 @@ public class PlayerController : MonoBehaviour
         {
             moveVector.y -= gravity * 2f * Time.deltaTime;
         }
-        characterController.Move(moveVector);
+        if (!combatStateMachine.IsAttacking())
+        {
+            characterController.Move(moveVector);
+        }
     }
 
     private Vector3 getInputOnlyMovementVector()

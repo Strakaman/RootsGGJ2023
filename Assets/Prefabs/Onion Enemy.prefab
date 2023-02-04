@@ -967,6 +967,7 @@ GameObject:
   - component: {fileID: 4217306752201234630}
   - component: {fileID: 4217306752201234649}
   - component: {fileID: 1285466105160497422}
+  - component: {fileID: 1771792874664084881}
   m_Layer: 0
   m_Name: Onion Enemy
   m_TagString: Untagged
@@ -1072,10 +1073,28 @@ MonoBehaviour:
   playerReference: {fileID: 0}
   personalSpaceRange: 15
   distanceToRunAway: 20
-  maxHealth: 3
-  currentHealth: 0
   baseMaxSpeed: 6
   target: {fileID: 0}
+--- !u!114 &1771792874664084881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3911248683469697289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec173074bce21f948b545cb2b853586c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  currentHealth: 0
+  healthLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4078502448375303710
 GameObject:
   m_ObjectHideFlags: 0

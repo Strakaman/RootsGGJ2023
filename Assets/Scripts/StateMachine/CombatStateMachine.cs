@@ -14,8 +14,16 @@ public class CombatStateMachine : StateMachine
         {
             Debug.Log("Attack pressed");
             CurrentState.ProcessInput(callbackContext.action);
-            //animator.SetTrigger("Attack" + val);
         }
     }
 
+    public void CheckedHitTarget(Enemy hitEnemy)
+    {
+        ((MeleeBaseState)CurrentState).ProcessHitEnemy(hitEnemy);
+    }
+
+    public bool IsAttacking()
+    {
+        return !CurrentState.Equals(mainStateType);
+    }
 }

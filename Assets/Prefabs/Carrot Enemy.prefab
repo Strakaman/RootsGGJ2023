@@ -803,6 +803,7 @@ GameObject:
   - component: {fileID: 6875904834550235181}
   - component: {fileID: 6875904834550235182}
   - component: {fileID: 6875904834550235183}
+  - component: {fileID: 1545004299680850669}
   m_Layer: 0
   m_Name: Carrot Enemy
   m_TagString: Untagged
@@ -911,10 +912,28 @@ MonoBehaviour:
   playerReference: {fileID: 0}
   personalSpaceRange: 15
   distanceToRunAway: 20
-  maxHealth: 3
-  currentHealth: 0
   baseMaxSpeed: 6
   target: {fileID: 0}
+--- !u!114 &1545004299680850669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4139653642319563847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec173074bce21f948b545cb2b853586c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  currentHealth: 0
+  healthLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4207521738269624181
 GameObject:
   m_ObjectHideFlags: 0
