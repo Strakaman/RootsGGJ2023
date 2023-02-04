@@ -48,6 +48,8 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Update()
     {
+        //[If there is enough time] Add an pathing function while the enemy is idle
+
         //if not running and player is within personalSpaceRange, trigger RunAway
         if (!runAwayTriggered && DistanceBetween(playerReference.transform.position, transform.position) <= personalSpaceRange)
         {
@@ -55,7 +57,7 @@ public class Enemy : MonoBehaviour
         }
 
         //if at (or close to) runAwayPoint, set the running trigger to false
-        if (DistanceBetween(transform.position, runAwayPoint) <= 0.1 || agent.velocity == Vector3.zero)
+        if (runAwayTriggered && DistanceBetween(transform.position, runAwayPoint) <= 0.1 || agent.velocity == Vector3.zero)
         {
             StopRunAway();
         }
