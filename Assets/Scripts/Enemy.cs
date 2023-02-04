@@ -112,7 +112,7 @@ public class Enemy : MonoBehaviour
 
     protected void ReduceMaxSpeed()
     {
-        agent.speed = baseMaxSpeed * (myHealth.CurrentHealth / myHealth.MaxHealth);
+        agent.speed = baseMaxSpeed * ((float)myHealth.CurrentHealth / (float)myHealth.MaxHealth);
     }
 
     public void TakeHit(int damage)
