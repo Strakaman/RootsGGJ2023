@@ -20,6 +20,7 @@ public class MeleeBaseState : State
     {
         base.OnEnter(_stateMachine);
         animator = GetComponent<Animator>();
+        //Debug.Log("Entering Player Attack " + attackIndex);
     }
 
     public override void ProcessInput(InputAction action)
@@ -33,6 +34,7 @@ public class MeleeBaseState : State
 
     public virtual void ProcessHitEnemy(Enemy enemyThatWasHit)
     {
+        Debug.Log("Checking if hit enemy is already hit with this attack " + attackIndex + " Enemy: " + enemyThatWasHit.transform.name);
         if (!enemiesHit.Contains(enemyThatWasHit))
         {
             enemiesHit.Add(enemyThatWasHit);

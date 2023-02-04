@@ -25,7 +25,7 @@ public class BGMPlayer : MonoBehaviour
 
     void PlayASong()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             AudioManager.instance.PlayMusic(lobbyMusic);
         }

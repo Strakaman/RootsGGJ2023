@@ -49,7 +49,7 @@ MonoBehaviour:
   masterVolumePercent: 1
   sfxVolumePercent: 1
   musicVolumePercent: 0.2
-  voiceVolumePercent: 1
+  voiceVolumePercent: 0.5
 --- !u!114 &3111916579684628235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,7 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f031082eb350404cb1722a48e7d2ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  songNumber: 0
   lobbyMusic: {fileID: 8300000, guid: 6e5bb1a9e22c4f844be58e56493f89a7, type: 3}
   matchMusic:
   - {fileID: 8300000, guid: 7281ff591743acc4b98915bb105c7605, type: 3}

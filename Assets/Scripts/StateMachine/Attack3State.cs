@@ -18,6 +18,5 @@ public class Attack3State : MeleeBaseState
         attackIndex = 3;
         duration = 1.2f;
         animator.SetTrigger("Attack" + attackIndex);
-        Debug.Log("Entering Player Attack " + attackIndex);
     }
 }

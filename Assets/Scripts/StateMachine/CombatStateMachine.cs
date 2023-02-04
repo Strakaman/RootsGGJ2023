@@ -12,7 +12,7 @@ public class CombatStateMachine : StateMachine
     {
         if (callbackContext.performed)
         {
-            Debug.Log("Attack pressed");
+            //Debug.Log("Attack pressed");
             CurrentState.ProcessInput(callbackContext.action);
         }
     }

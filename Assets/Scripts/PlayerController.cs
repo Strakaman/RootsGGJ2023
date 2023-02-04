@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     protected Animator animator;
     protected CombatStateMachine combatStateMachine;
     public CinemachineInputProvider cameraControls;
+    public CinemachineFreeLook cineMachineFreeLook;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,10 @@ public class PlayerController : MonoBehaviour
             {
                 cameraControls.enabled = true;
             }
+        }
+        if (cineMachineFreeLook != null)
+        {
+           
         }
         Vector3 inputVector = getCameraInputVector();
         UpdateRotation(inputVector);
