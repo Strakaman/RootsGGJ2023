@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7540778562296397106}
   - component: {fileID: 2772465908401266065}
   - component: {fileID: 1838917136527799034}
+  - component: {fileID: 505438033829917370}
   m_Layer: 8
   m_Name: PotatoDonoPlayer
   m_TagString: Player
@@ -256,6 +257,14 @@ MonoBehaviour:
   customName: Combat
   hitBox: {fileID: 6202980280082940935}
   hitEffect: {fileID: 0}
+--- !u!81 &505438033829917370
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6678113656567228}
+  m_Enabled: 1
 --- !u!1 &275793769463617255
 GameObject:
   m_ObjectHideFlags: 0

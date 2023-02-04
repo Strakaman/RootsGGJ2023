@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4503537646232433950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4648460939790744626}
+  - component: {fileID: 6630401212464530654}
+  - component: {fileID: 3111916579684628235}
+  - component: {fileID: 6963872606448863358}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4648460939790744626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4503537646232433950}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.64, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6630401212464530654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4503537646232433950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e5182778db77b24a94c751f7be4e669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVolumePercent: 1
+  sfxVolumePercent: 1
+  musicVolumePercent: 0.2
+  voiceVolumePercent: 1
+--- !u!114 &3111916579684628235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4503537646232433950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d5e08b9716e71428ffc6d847f42d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundGroups:
+  - groupID: Attack1
+    group: []
+  - groupID: Attack2
+    group: []
+  - groupID: Attack3
+    group: []
+  - groupID: EnemyDeath
+    group: []
+  - groupID: PlayerDeath
+    group: []
+  - groupID: SliceSound
+    group: []
+  - groupID: MatchStart
+    group:
+    - {fileID: 8300000, guid: a5c15243ff4bdb3448eb1d95a7dddfdd, type: 3}
+    - {fileID: 8300000, guid: 7ea0633f43a50af49b4e2b058d966bfc, type: 3}
+--- !u!114 &6963872606448863358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4503537646232433950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f031082eb350404cb1722a48e7d2ce4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songNumber: 0
+  lobbyMusic: {fileID: 8300000, guid: 6e5bb1a9e22c4f844be58e56493f89a7, type: 3}
+  matchMusic:
+  - {fileID: 8300000, guid: 7281ff591743acc4b98915bb105c7605, type: 3}
+  - {fileID: 8300000, guid: ad0ae830bb970e04ca6796f2724f2501, type: 3}
+  - {fileID: 8300000, guid: 9a349c68fd1f1cf468cf8aebf1e12d9b, type: 3}
