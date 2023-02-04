@@ -92,7 +92,7 @@ public class AudioManager : MonoBehaviour
 		StartCoroutine(AnimateMusicCrossfade(fadeDuration));
 	}
 
-	public void PlaySound(AudioClip clip, Vector3 pos)
+	public void PlaySoundFX(AudioClip clip, Vector3 pos)
 	{
 		if (clip != null)
 		{
@@ -100,12 +100,12 @@ public class AudioManager : MonoBehaviour
 		}
 	}
 
-	public void PlaySound(string soundName, Vector3 pos)
+	public void PlaySoundFX(string soundName, Vector3 pos)
 	{
-		PlaySound(library.GetClipFromName(soundName), pos);
+		PlaySoundFX(library.GetClipFromName(soundName), pos);
 	}
 
-	public void PlaySound2D(string soundName)
+	public void PlayVoiceLine(string soundName)
 	{
 		sfx2DSource.PlayOneShot(library.GetClipFromName(soundName), voiceVolumePercent * masterVolumePercent);
 	}

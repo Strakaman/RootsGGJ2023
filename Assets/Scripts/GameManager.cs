@@ -13,6 +13,6 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        AudioManager.instance.PlaySound2D("MatchStart");
+        AudioManager.instance.PlayVoiceLine("MatchStart");
     }
 }
