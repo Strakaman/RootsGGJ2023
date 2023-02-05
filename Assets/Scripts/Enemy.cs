@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         myHealth = GetComponent<Health>();
+        playerReference = GameManager.instance.playerReference;
     }
 
     protected virtual void Start()

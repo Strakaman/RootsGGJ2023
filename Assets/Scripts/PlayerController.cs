@@ -152,9 +152,11 @@ public class PlayerController : MonoBehaviour
         float waitTime = 1f;
         while (elapsedTime < waitTime)
         {
+            float yPos = Mathf.Lerp(946.8974f, 945.3f, (elapsedTime / waitTime));
+            transform.position = new Vector3(transform.position.x, yPos, transform.position.z);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
     }
 }

@@ -23,9 +23,9 @@ public class DaikonRadish : Enemy
     protected override void Start()
     {
         base.Start();
-        if (playerCharacter != null)
+        if (playerCharacter == null)
         {
-            playerCharacter = FindObjectOfType<PlayerController>();
+            playerCharacter = GameManager.instance.playerReference.GetComponent<PlayerController>();
         }
     }
 
