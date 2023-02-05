@@ -101,6 +101,14 @@ public class AudioManager : MonoBehaviour
 		StartCoroutine(AnimateMusicCrossfade(fadeDuration));
 	}
 
+	public void StopMusic()
+    {
+		foreach(AudioSource audioSource in musicSources)
+        {
+			audioSource.Stop();
+        }
+    }
+
 	public void PlaySoundFX(AudioClip clip, Vector3 pos)
 	{
 		if (clip != null)
