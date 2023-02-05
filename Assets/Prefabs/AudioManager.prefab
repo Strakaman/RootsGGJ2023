@@ -63,22 +63,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundGroups:
-  - groupID: Attack1
-    group: []
-  - groupID: Attack2
-    group: []
-  - groupID: Attack3
-    group: []
-  - groupID: EnemyDeath
-    group: []
-  - groupID: PlayerDeath
-    group: []
-  - groupID: SliceSound
-    group: []
   - groupID: MatchStart
     group:
-    - {fileID: 8300000, guid: a5c15243ff4bdb3448eb1d95a7dddfdd, type: 3}
-    - {fileID: 8300000, guid: 7ea0633f43a50af49b4e2b058d966bfc, type: 3}
+    - {fileID: 8300000, guid: a6df1a254e2024840b02703f12d3dc3b, type: 3}
+    - {fileID: 8300000, guid: 07e2de947b7b4c740931e0b7a8b3f018, type: 3}
+    - {fileID: 8300000, guid: 6d73020488dac4d47905f9bad9f17ec3, type: 3}
+    - {fileID: 8300000, guid: 40f267bdb3e836b4391e2e09065c83eb, type: 3}
+    - {fileID: 8300000, guid: 4f8b35bad63231041a515f1b3f144bff, type: 3}
+    - {fileID: 8300000, guid: 22e522a45b37a1f4b9e13756cc810c85, type: 3}
+  - groupID: Attack1
+    group:
+    - {fileID: 8300000, guid: 3b464cf61f126b1478357c51a08c3e3f, type: 3}
+    - {fileID: 8300000, guid: 0c584624e35c3a3489a0f6afcec9cde0, type: 3}
+  - groupID: Attack2
+    group:
+    - {fileID: 8300000, guid: ddc665d2847bbc548958eec70a0b1780, type: 3}
+  - groupID: Attack3
+    group:
+    - {fileID: 8300000, guid: 6e8a180ab87437c45a2572b222c1ed97, type: 3}
+    - {fileID: 8300000, guid: 76f5c4d70a367264395affdf4313d0fa, type: 3}
+  - groupID: PlayerHit
+    group:
+    - {fileID: 8300000, guid: 487e1bc3995c0d14099eb3b996f6f80a, type: 3}
+    - {fileID: 8300000, guid: 286f874a78b8491448d77418fcd5bde0, type: 3}
+    - {fileID: 8300000, guid: 7702ae9f3eb51cb438adf674ce70b076, type: 3}
+    - {fileID: 8300000, guid: 43ab55cb0b746b04d8648e0cd650b4a5, type: 3}
+    - {fileID: 8300000, guid: 8156b97bd7f62b14badfa32030b07315, type: 3}
+  - groupID: PlayerDeath
+    group:
+    - {fileID: 8300000, guid: 9047180983dbb0d4481cc8b221461ff1, type: 3}
+    - {fileID: 8300000, guid: 76f5c4d70a367264395affdf4313d0fa, type: 3}
+    - {fileID: 8300000, guid: 296c787e321c8c14e95d494975e18ca7, type: 3}
+  - groupID: SliceSound
+    group: []
+  - groupID: Victory
+    group:
+    - {fileID: 8300000, guid: 0f9bc6c5e39bf3e43a16f94bbbd0034b, type: 3}
+    - {fileID: 8300000, guid: ce2f0853f2739c046bfe13a1b46959d1, type: 3}
+    - {fileID: 8300000, guid: a265ef765d4028949a9d2fd10ac84b5e, type: 3}
+    - {fileID: 8300000, guid: 22f47bf575c80bb459564c87eeac8c34, type: 3}
+  - groupID: EnemyPanic
+    group:
+    - {fileID: 8300000, guid: 10fe40b0820865a4e8bf736f7ae5bda7, type: 3}
+    - {fileID: 8300000, guid: ced4ca719d527c642b2d93d73d094a0a, type: 3}
+    - {fileID: 8300000, guid: 241d83395a12a784594a8b551441de88, type: 3}
+    - {fileID: 8300000, guid: 591fa0eacfe33ee4d87b6f710afdcb67, type: 3}
+  - groupID: Enemy Hit
+    group:
+    - {fileID: 8300000, guid: 01aea2c25a283724a8cac19b4b685818, type: 3}
+    - {fileID: 8300000, guid: 12bd1e406f85dff48afb6d97b2da0cee, type: 3}
+    - {fileID: 8300000, guid: 2ff2a130169db9b43ae411d85d5199da, type: 3}
+    - {fileID: 8300000, guid: 3e8a8d96637536a43a50a8980262e7e2, type: 3}
+    - {fileID: 8300000, guid: a488775fed55405438e13cbbb5f54ec2, type: 3}
+  - groupID: Enemy Death
+    group:
+    - {fileID: 8300000, guid: b42ab7a0d6b5d5f488460034145eaa92, type: 3}
+    - {fileID: 8300000, guid: 2436afb2454b3b94fa6f456cd60ab975, type: 3}
+    - {fileID: 8300000, guid: 26dedc50e4c44644daf62319888cc0c0, type: 3}
+    - {fileID: 8300000, guid: dd8183c7af3be2f489cc6f13a2af1f96, type: 3}
+    - {fileID: 8300000, guid: 1b6b538ebf7cbb34195eecd9fdc97a04, type: 3}
 --- !u!114 &6963872606448863358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,8 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f031082eb350404cb1722a48e7d2ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lobbyMusic: {fileID: 8300000, guid: 6e5bb1a9e22c4f844be58e56493f89a7, type: 3}
+  lobbyMusic: {fileID: 8300000, guid: 9a349c68fd1f1cf468cf8aebf1e12d9b, type: 3}
   matchMusic:
-  - {fileID: 8300000, guid: 7281ff591743acc4b98915bb105c7605, type: 3}
-  - {fileID: 8300000, guid: ad0ae830bb970e04ca6796f2724f2501, type: 3}
-  - {fileID: 8300000, guid: 9a349c68fd1f1cf468cf8aebf1e12d9b, type: 3}
+  - {fileID: 8300000, guid: 6e5bb1a9e22c4f844be58e56493f89a7, type: 3}
+  creditsMusic: {fileID: 8300000, guid: 7281ff591743acc4b98915bb105c7605, type: 3}

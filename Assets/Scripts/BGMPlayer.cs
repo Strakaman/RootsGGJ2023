@@ -7,6 +7,7 @@ public class BGMPlayer : MonoBehaviour
 {
     public AudioClip lobbyMusic;
     public AudioClip[] matchMusic;
+    public AudioClip creditsMusic;
 
     private void OnEnable()
     {
