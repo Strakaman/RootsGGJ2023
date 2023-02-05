@@ -37,11 +37,16 @@ public class GameManager : MonoBehaviour
         bool updatedRecipe = false;
         foreach (RecipeGoal recipeGoal in recipeGoals)
         {
-            if (recipeGoal.enemyType == eT)
+            if (eT == EnemyType.Daikon)
+            {
+                AudioManager.instance.PlayVoiceLine("DaikonVictory");
+            }
+            else if (recipeGoal.enemyType == eT)
             {
                 recipeGoal.IncreaseVeggieCount();
                 updatedRecipe = true;
             }
+
         }
 
         UIManager.instance.UpdateGoalUI(recipeGoals.ToArray());

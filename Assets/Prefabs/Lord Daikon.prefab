@@ -2691,7 +2691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5855905c5096fb469ae2d179abbc326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 0
+  enemyType: 2
   playerReference: {fileID: 0}
   personalSpaceRange: 0
   distanceToRunAway: 0

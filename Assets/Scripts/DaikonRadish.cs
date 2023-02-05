@@ -27,6 +27,7 @@ public class DaikonRadish : Enemy
         {
             playerCharacter = GameManager.instance.playerReference.GetComponent<PlayerController>();
         }
+        AudioManager.instance.PlayVoiceLine("DaikonSpawn");
     }
 
     // Update is called once per frame
@@ -81,6 +82,7 @@ public class DaikonRadish : Enemy
     protected void AttackPlayer()
     {
         Debug.Log("I'm attacking the player");
+        AudioManager.instance.PlayVoiceLine("DaikonAttack");
         Vector3 turnVector = playerCharacter.transform.position - transform.position;
         turnVector.y = 0;
         turnVector.Normalize();

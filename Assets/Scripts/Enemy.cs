@@ -124,6 +124,10 @@ public class Enemy : MonoBehaviour
     public void TakeHit(int damage)
     {
         myHealth.TakeDamage(damage);
+        if (enemyType == EnemyType.Daikon)
+        {
+            AudioManager.instance.PlayVoiceLine("DaikonHit", 1);
+        }
         //need glow effect for getting hit and such
     }
 
@@ -138,6 +142,10 @@ public class Enemy : MonoBehaviour
         if (enemyType != EnemyType.Daikon)
         {
             AudioManager.instance.PlayVoiceLine("EnemyDeath", 1);
+        }
+        else
+        {
+            AudioManager.instance.PlayVoiceLine("DaikonDeath");
         }
         StartCoroutine(DeathAnimation());
     }

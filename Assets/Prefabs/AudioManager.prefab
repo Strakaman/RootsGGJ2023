@@ -106,13 +106,6 @@ MonoBehaviour:
   - groupID: SliceSound3
     group:
     - {fileID: 8300000, guid: d7cee49c7abd0754a8ea22f981325384, type: 3}
-  - groupID: Victory
-    group:
-    - {fileID: 8300000, guid: 0f9bc6c5e39bf3e43a16f94bbbd0034b, type: 3}
-    - {fileID: 8300000, guid: ce2f0853f2739c046bfe13a1b46959d1, type: 3}
-    - {fileID: 8300000, guid: a265ef765d4028949a9d2fd10ac84b5e, type: 3}
-    - {fileID: 8300000, guid: 22f47bf575c80bb459564c87eeac8c34, type: 3}
-    - {fileID: 8300000, guid: 85bb3f5557c7c4a42b28f89f7ba0cfb2, type: 3}
   - groupID: EnemyPanic
     group:
     - {fileID: 8300000, guid: 10fe40b0820865a4e8bf736f7ae5bda7, type: 3}
@@ -139,6 +132,34 @@ MonoBehaviour:
   - groupID: RecipeComplete
     group:
     - {fileID: 8300000, guid: 2b8298d77ef3d974daf73c4246e9dae8, type: 3}
+  - groupID: Victory
+    group:
+    - {fileID: 8300000, guid: 0f9bc6c5e39bf3e43a16f94bbbd0034b, type: 3}
+    - {fileID: 8300000, guid: a265ef765d4028949a9d2fd10ac84b5e, type: 3}
+    - {fileID: 8300000, guid: 22f47bf575c80bb459564c87eeac8c34, type: 3}
+    - {fileID: 8300000, guid: 85bb3f5557c7c4a42b28f89f7ba0cfb2, type: 3}
+  - groupID: DaikonSpawn
+    group:
+    - {fileID: 8300000, guid: 15ec7fed73b52194797e7c39d0848125, type: 3}
+  - groupID: DaikonAttack
+    group:
+    - {fileID: 8300000, guid: 898374380691edb489fe492488c3e65f, type: 3}
+    - {fileID: 8300000, guid: 310ef9f323107014b8fad51b5f1acd9b, type: 3}
+    - {fileID: 8300000, guid: 745017d8eb82d414da5448bb04b43fcd, type: 3}
+  - groupID: DaikonHit
+    group:
+    - {fileID: 8300000, guid: 16ec2dddb98fe924ba62cfebdda4b675, type: 3}
+    - {fileID: 8300000, guid: f7b49e99856773843ac31cf597f087f3, type: 3}
+    - {fileID: 8300000, guid: 69d150f267a302045bfe6f23b8dc2591, type: 3}
+  - groupID: DaikonDeath
+    group:
+    - {fileID: 8300000, guid: 8ff166bc71c30fa45a6dfba0c120ccde, type: 3}
+  - groupID: DaikonVictory
+    group:
+    - {fileID: 8300000, guid: ce2f0853f2739c046bfe13a1b46959d1, type: 3}
+  - groupID: Ending
+    group:
+    - {fileID: 8300000, guid: e9e2434d02a9c3842bd3c4762d3ef26a, type: 3}
 --- !u!114 &6963872606448863358
 MonoBehaviour:
   m_ObjectHideFlags: 0
