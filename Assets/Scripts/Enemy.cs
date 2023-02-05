@@ -32,6 +32,8 @@ public class Enemy : MonoBehaviour
     //only for testing a destination
     [SerializeField] public Transform target;
 
+    protected bool isDead = false;
+
     protected virtual void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -48,6 +50,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Update()
     {
+        if (isDead) { return; }
         //[If there is enough time] Add an pathing function while the enemy is idle
 
         //if not running and player is within personalSpaceRange, trigger RunAway
@@ -126,6 +129,7 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         GameManager.instance.UpdateRecipeGoal(enemyType);
+        isDead = true;
         agent.destination = transform.position;
         agent.velocity = Vector3.zero;
         gameObject.tag = "Untagged";

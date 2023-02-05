@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public CinemachineInputProvider cameraControls;
     public CinemachineFreeLook cineMachineFreeLook;
     protected Health myHealth;
+    protected bool isDead = false;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
                 cineMachineFreeLook.m_YAxis.m_InvertInput = !cineMachineFreeLook.m_YAxis.m_InvertInput;
             }
         }
+        if (isDead) { return; }
         Vector3 inputVector = getCameraInputVector();
         UpdateRotation(inputVector);
         Vector3 moveVector = inputVector * Time.deltaTime * speed;
@@ -130,6 +132,7 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+        isDead = true;
         gameObject.tag = "Untagged";
         gameObject.layer = 0;
         AudioManager.instance.PlayVoiceLine("PlayerDeath", 1);

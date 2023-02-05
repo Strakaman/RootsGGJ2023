@@ -19,6 +19,7 @@ public class DaikonRadish : Enemy
 
     protected bool attackingPlayer = false;
     // Start is called before the first frame update
+
     protected override void Start()
     {
         base.Start();
@@ -31,6 +32,8 @@ public class DaikonRadish : Enemy
     // Update is called once per frame
     protected override void Update()
     {
+        if (isDead) { return; }
+
         timeSinceLastAttack += Time.deltaTime;
         if (attackingPlayer) { return; }
         else if (playerReached)
