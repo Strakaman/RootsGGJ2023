@@ -31,12 +31,13 @@ public class GameManager : MonoBehaviour
 
     public void UpdateRecipeGoal(EnemyType eT)
     {
+        bool updatedRecipe = false;
         foreach (RecipeGoal recipeGoal in recipeGoals)
         {
             if (recipeGoal.enemyType == eT)
             {
-                AudioManager.instance.PlayVoiceLine("RecipeUpdate");
                 recipeGoal.IncreaseVeggieCount();
+                updatedRecipe = true;
             }
         }
 
@@ -47,6 +48,10 @@ public class GameManager : MonoBehaviour
             AudioManager.instance.PlayVoiceLine("RecipeComplete");
             isRoundWon = true;
             Debug.Log("Round Won");
+        }
+        else if (updatedRecipe)
+        {
+            AudioManager.instance.PlayVoiceLine("RecipeUpdate");
         }
     } 
 
