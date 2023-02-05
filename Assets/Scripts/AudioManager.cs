@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class AudioManager : MonoBehaviour
 {
@@ -22,6 +24,7 @@ public class AudioManager : MonoBehaviour
 	Transform playerT;
 
 	SoundLibrary library;
+	Dictionary<string, float> voiceLineCoolDown; 
 
 	void Awake()
 	{
@@ -35,7 +38,7 @@ public class AudioManager : MonoBehaviour
 			DontDestroyOnLoad(gameObject);
 
 			library = GetComponent<SoundLibrary>();
-
+			voiceLineCoolDown = new Dictionary<string, float>();
 			musicSources = new AudioSource[2];
 			for (int i = 0; i < 2; i++)
 			{
@@ -57,6 +60,12 @@ public class AudioManager : MonoBehaviour
 		{
 			//audioListener.position = playerT.position; //don't need this as audio listener is already on the player
 		}
+		//Dictionary<string, float>.KeyCollection keys = voiceLineCoolDown.Keys;
+		List<string> listOfKeys = voiceLineCoolDown.Keys.ToList();
+		foreach (string key in listOfKeys)
+        {
+			voiceLineCoolDown[key] -= Time.deltaTime;
+        }
 	}
 
 	public void SetVolume(float volumePercent, AudioChannel channel)
@@ -108,6 +117,15 @@ public class AudioManager : MonoBehaviour
 	public void PlayVoiceLine(string soundName)
 	{
 		sfx2DSource.PlayOneShot(library.GetClipFromName(soundName), voiceVolumePercent * masterVolumePercent);
+	}
+
+	public void PlayVoiceLine(string soundName, float repeatCooldown)
+	{
+		//if cooldown has not been hit for sound group, then do not play sound again
+		if (voiceLineCoolDown.ContainsKey(soundName) && voiceLineCoolDown[soundName]> 0) { return; }
+
+		voiceLineCoolDown[soundName] = repeatCooldown;
+		PlayVoiceLine(soundName);
 	}
 
 

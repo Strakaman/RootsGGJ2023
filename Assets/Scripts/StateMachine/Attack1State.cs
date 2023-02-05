@@ -23,5 +23,7 @@ public class Attack1State : MeleeBaseState
         attackIndex = 1;
         duration = 0.8f;
         animator.SetTrigger("Attack" + attackIndex);
+        AudioManager.instance.PlayVoiceLine("Attack" + attackIndex, 3);
+        AudioManager.instance.PlaySoundFX("SliceSound" + attackIndex, stateMachine.transform.position);
     }
 }
