@@ -39,7 +39,10 @@ public class PlayerController : MonoBehaviour
         }
         if (cineMachineFreeLook != null)
         {
-           
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                cineMachineFreeLook.m_YAxis.m_InvertInput = !cineMachineFreeLook.m_YAxis.m_InvertInput;
+            }
         }
         Vector3 inputVector = getCameraInputVector();
         UpdateRotation(inputVector);

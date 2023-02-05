@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   masterVolumePercent: 1
-  sfxVolumePercent: 1
-  musicVolumePercent: 0.2
-  voiceVolumePercent: 0.5
+  sfxVolumePercent: 0.1
+  musicVolumePercent: 0.1
+  voiceVolumePercent: 0.6
 --- !u!114 &3111916579684628235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,13 +75,16 @@ MonoBehaviour:
     group:
     - {fileID: 8300000, guid: 3b464cf61f126b1478357c51a08c3e3f, type: 3}
     - {fileID: 8300000, guid: 0c584624e35c3a3489a0f6afcec9cde0, type: 3}
+    - {fileID: 8300000, guid: 2c473b930fa11ea4ea0284b4892a8c66, type: 3}
   - groupID: Attack2
     group:
     - {fileID: 8300000, guid: ddc665d2847bbc548958eec70a0b1780, type: 3}
+    - {fileID: 8300000, guid: fb006cb4606a60b4c86210a1565dd6fa, type: 3}
   - groupID: Attack3
     group:
-    - {fileID: 8300000, guid: 6e8a180ab87437c45a2572b222c1ed97, type: 3}
+    - {fileID: 8300000, guid: f8a5024f376c0c84e967079fec3658ec, type: 3}
     - {fileID: 8300000, guid: 76f5c4d70a367264395affdf4313d0fa, type: 3}
+    - {fileID: 8300000, guid: df9ab8843b63bca4b90867f37e5b97e9, type: 3}
   - groupID: PlayerHit
     group:
     - {fileID: 8300000, guid: 487e1bc3995c0d14099eb3b996f6f80a, type: 3}
@@ -94,28 +97,36 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 9047180983dbb0d4481cc8b221461ff1, type: 3}
     - {fileID: 8300000, guid: 76f5c4d70a367264395affdf4313d0fa, type: 3}
     - {fileID: 8300000, guid: 296c787e321c8c14e95d494975e18ca7, type: 3}
-  - groupID: SliceSound
-    group: []
+  - groupID: SliceSound1
+    group:
+    - {fileID: 8300000, guid: 741bb736bea96a84aad9e446060d13f0, type: 3}
+  - groupID: SliceSound2
+    group:
+    - {fileID: 8300000, guid: 06b7738ba416c2949917655eab47b6d8, type: 3}
+  - groupID: SliceSound3
+    group:
+    - {fileID: 8300000, guid: d7cee49c7abd0754a8ea22f981325384, type: 3}
   - groupID: Victory
     group:
     - {fileID: 8300000, guid: 0f9bc6c5e39bf3e43a16f94bbbd0034b, type: 3}
     - {fileID: 8300000, guid: ce2f0853f2739c046bfe13a1b46959d1, type: 3}
     - {fileID: 8300000, guid: a265ef765d4028949a9d2fd10ac84b5e, type: 3}
     - {fileID: 8300000, guid: 22f47bf575c80bb459564c87eeac8c34, type: 3}
+    - {fileID: 8300000, guid: 85bb3f5557c7c4a42b28f89f7ba0cfb2, type: 3}
   - groupID: EnemyPanic
     group:
     - {fileID: 8300000, guid: 10fe40b0820865a4e8bf736f7ae5bda7, type: 3}
     - {fileID: 8300000, guid: ced4ca719d527c642b2d93d73d094a0a, type: 3}
     - {fileID: 8300000, guid: 241d83395a12a784594a8b551441de88, type: 3}
     - {fileID: 8300000, guid: 591fa0eacfe33ee4d87b6f710afdcb67, type: 3}
-  - groupID: Enemy Hit
+  - groupID: EnemyHit
     group:
     - {fileID: 8300000, guid: 01aea2c25a283724a8cac19b4b685818, type: 3}
     - {fileID: 8300000, guid: 12bd1e406f85dff48afb6d97b2da0cee, type: 3}
     - {fileID: 8300000, guid: 2ff2a130169db9b43ae411d85d5199da, type: 3}
     - {fileID: 8300000, guid: 3e8a8d96637536a43a50a8980262e7e2, type: 3}
     - {fileID: 8300000, guid: a488775fed55405438e13cbbb5f54ec2, type: 3}
-  - groupID: Enemy Death
+  - groupID: EnemyDeath
     group:
     - {fileID: 8300000, guid: b42ab7a0d6b5d5f488460034145eaa92, type: 3}
     - {fileID: 8300000, guid: 2436afb2454b3b94fa6f456cd60ab975, type: 3}

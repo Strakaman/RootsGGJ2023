@@ -81,6 +81,7 @@ public class Enemy : MonoBehaviour
     protected virtual void TriggerRunAway(Vector3 playerPosition)
     {
         runAwayTriggered = true;
+        AudioManager.instance.PlayVoiceLine("EnemyPanic", 2.5f);
         animator.SetBool("isRunning", true);
         Vector3 directionFromPlayer = (playerPosition - transform.position).normalized;
         Vector3 offsetForDestination = new Vector3(directionFromPlayer.x * distanceToRunAway, directionFromPlayer.y, directionFromPlayer.z * distanceToRunAway);
@@ -112,6 +113,7 @@ public class Enemy : MonoBehaviour
 
     protected void ReduceMaxSpeed()
     {
+        AudioManager.instance.PlayVoiceLine("EnemyHit", 2);
         agent.speed = baseMaxSpeed * ((float)myHealth.CurrentHealth / (float)myHealth.MaxHealth);
     }
 
@@ -124,11 +126,11 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         GameManager.instance.UpdateRecipeGoal(enemyType);
-        runAwayTriggered = false;
         agent.destination = transform.position;
         agent.velocity = Vector3.zero;
         gameObject.tag = "Untagged";
         gameObject.layer = 0;
+        AudioManager.instance.PlayVoiceLine("EnemyDeath", 1);
         StartCoroutine(DeathAnimation());
     }
 
