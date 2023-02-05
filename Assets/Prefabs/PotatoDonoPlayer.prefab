@@ -243,6 +243,7 @@ MonoBehaviour:
   gravity: 9.81
   jumpForce: 0
   cameraControls: {fileID: 0}
+  cineMachineFreeLook: {fileID: 0}
 --- !u!114 &1838917136527799034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -549,6 +550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6590645edb04a4e84d20bc03d4a2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whoDoIHate: Enemy
 --- !u!1 &2833845651322290880
 GameObject:
   m_ObjectHideFlags: 0

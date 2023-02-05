@@ -34,7 +34,7 @@ public class MeleeBaseState : State
 
     public virtual void ProcessHitEnemy(Enemy enemyThatWasHit)
     {
-        Debug.Log("Checking if hit enemy is already hit with this attack " + attackIndex + " Enemy: " + enemyThatWasHit.transform.name);
+        //Debug.Log("Checking if hit enemy is already hit with this attack " + attackIndex + " Enemy: " + enemyThatWasHit.transform.name);
         if (!enemiesHit.Contains(enemyThatWasHit))
         {
             enemiesHit.Add(enemyThatWasHit);

@@ -133,6 +133,12 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 26dedc50e4c44644daf62319888cc0c0, type: 3}
     - {fileID: 8300000, guid: dd8183c7af3be2f489cc6f13a2af1f96, type: 3}
     - {fileID: 8300000, guid: 1b6b538ebf7cbb34195eecd9fdc97a04, type: 3}
+  - groupID: RecipieUpdate
+    group:
+    - {fileID: 8300000, guid: ed007af301ff3eb46b231e2a1debdadd, type: 3}
+  - groupID: RecipieComplete
+    group:
+    - {fileID: 8300000, guid: 2b8298d77ef3d974daf73c4246e9dae8, type: 3}
 --- !u!114 &6963872606448863358
 MonoBehaviour:
   m_ObjectHideFlags: 0

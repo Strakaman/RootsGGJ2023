@@ -111,7 +111,7 @@ public class Enemy : MonoBehaviour
     }
 
 
-    protected void ReduceMaxSpeed()
+    protected virtual void ReduceMaxSpeed()
     {
         AudioManager.instance.PlayVoiceLine("EnemyHit", 2);
         agent.speed = baseMaxSpeed * ((float)myHealth.CurrentHealth / (float)myHealth.MaxHealth);
@@ -130,7 +130,10 @@ public class Enemy : MonoBehaviour
         agent.velocity = Vector3.zero;
         gameObject.tag = "Untagged";
         gameObject.layer = 0;
-        AudioManager.instance.PlayVoiceLine("EnemyDeath", 1);
+        if (enemyType != EnemyType.Daikon)
+        {
+            AudioManager.instance.PlayVoiceLine("EnemyDeath", 1);
+        }
         StartCoroutine(DeathAnimation());
     }
 
@@ -141,7 +144,6 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator DeathAnimation()
     {
-        //death sound
         animator.SetTrigger("Death");
         yield return new WaitForSeconds(1.78f);
         float elapsedTime = 0;

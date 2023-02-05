@@ -156,6 +156,65 @@ Transform:
   m_Father: {fileID: 7864834011738460111}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &619550021314684566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7475037019303765766}
+  - component: {fileID: 7485106630035329388}
+  - component: {fileID: 5425316193606567315}
+  m_Layer: 6
+  m_Name: MeleeHitBox
+  m_TagString: HitBox
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7475037019303765766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619550021314684566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4831421958951293583}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7485106630035329388
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619550021314684566}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5425316193606567315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619550021314684566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6590645edb04a4e84d20bc03d4a2df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whoDoIHate: Player
 --- !u!1 &627787036911955996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2499,6 +2558,9 @@ GameObject:
   - component: {fileID: 1579783224294213877}
   - component: {fileID: -6094840552350790688}
   - component: {fileID: -2331571286841522307}
+  - component: {fileID: 8610340706244280215}
+  - component: {fileID: -4086695526163970692}
+  - component: {fileID: 2982336717820291102}
   m_Layer: 7
   m_Name: Lord Daikon
   m_TagString: Enemy
@@ -2520,6 +2582,7 @@ Transform:
   m_Children:
   - {fileID: 4592684252066972177}
   - {fileID: 6455061187135816795}
+  - {fileID: 7475037019303765766}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2533,7 +2596,7 @@ Animator:
   m_GameObject: {fileID: 5208263439463483445}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 579665b38e9425946b0b58ba160120ce, type: 3}
-  m_Controller: {fileID: 9100000, guid: c160f1faff40670438b3e59ba5d3ad23, type: 2}
+  m_Controller: {fileID: 9100000, guid: 49af88c7a51627b4eaa7f49674744847, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2580,6 +2643,62 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &8610340706244280215
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5208263439463483445}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 6
+  m_Direction: 1
+  m_Center: {x: 0, y: 3, z: 0}
+--- !u!195 &-4086695526163970692
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5208263439463483445}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 7
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 3
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &2982336717820291102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5208263439463483445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5855905c5096fb469ae2d179abbc326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 0
+  playerReference: {fileID: 0}
+  personalSpaceRange: 0
+  distanceToRunAway: 0
+  baseMaxSpeed: 7
+  target: {fileID: 0}
+  playerCharacter: {fileID: 0}
+  attackCooldown: 2
 --- !u!1 &5271898954527955414
 GameObject:
   m_ObjectHideFlags: 0

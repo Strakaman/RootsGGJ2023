@@ -16,7 +16,12 @@ public class PlayerController : MonoBehaviour
     protected CombatStateMachine combatStateMachine;
     public CinemachineInputProvider cameraControls;
     public CinemachineFreeLook cineMachineFreeLook;
+    protected Health myHealth;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        myHealth = GetComponent<Health>();
+    }
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -114,5 +119,37 @@ public class PlayerController : MonoBehaviour
     void Hit()
     {
 
+    }
+
+    public void TakeHit(int damage)
+    {
+        myHealth.TakeDamage(damage);
+    }
+
+    public void Die()
+    {
+        gameObject.tag = "Untagged";
+        gameObject.layer = 0;
+        AudioManager.instance.PlayVoiceLine("PlayerDeath", 1);
+        StartCoroutine(DeathAnimation());
+    }
+
+    public void HealthLost()
+    {
+        AudioManager.instance.PlayVoiceLine("PlayerHit", 1);
+    }
+
+    private IEnumerator DeathAnimation()
+    {
+        animator.SetTrigger("Death");
+        yield return new WaitForSeconds(1.78f);
+        float elapsedTime = 0;
+        float waitTime = 1f;
+        while (elapsedTime < waitTime)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        Destroy(this.gameObject);
     }
 }
