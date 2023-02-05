@@ -1237,8 +1237,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1726691052403743062}
   - component: {fileID: 1726691052403743057}
-  - component: {fileID: 1726691052403743056}
-  - component: {fileID: 1726691052403743059}
   - component: {fileID: 1726691052403743058}
   - component: {fileID: 1726691052403743021}
   - component: {fileID: 1726691052403743063}
@@ -1307,28 +1305,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1726691052403743056
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726691052403743020}
-  m_Enabled: 1
---- !u!114 &1726691052403743059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726691052403743020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 478f19f2b564b5a459ccd72d2ea6afe1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseXSensitivity: 80
-  playerBody: {fileID: 0}
 --- !u!114 &1726691052403743058
 MonoBehaviour:
   m_ObjectHideFlags: 0
