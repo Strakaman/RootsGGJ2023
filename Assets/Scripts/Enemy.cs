@@ -123,7 +123,7 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-
+        GameManager.instance.UpdateRecipeGoal(enemyType);
     }
 
     public void HealthLost()
