@@ -7188,6 +7188,12 @@ PrefabInstance:
       propertyPath: m_Shadows.m_Type
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7409767690702518049, guid: b9f258a086096d24aa7861fa20deed65,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -414921334540547795, guid: 4782e3a6ebeb9d44290ef16df138772d,
+        type: 3}
     - target: {fileID: 7499448721086782842, guid: b9f258a086096d24aa7861fa20deed65,
         type: 3}
       propertyPath: Player
