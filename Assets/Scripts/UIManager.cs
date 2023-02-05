@@ -10,10 +10,28 @@ public class UIManager : MonoBehaviour
 
     public GameObject veggieGoalObjRef;
     public Transform veggieGoalsParent;
+    public HorizontalLayoutGroup veggieGoalsHoriLayout;
+
+    public Sprite carrotSprite;
+    public Sprite daikonSprite;
+    public Sprite garlicSprite;
+    public Sprite onionSprite;
+
+    public Dictionary<EnemyType, Sprite> spriteDictionary = new Dictionary<EnemyType, Sprite>();
 
     private void Awake()
     {
         instance = this;
+        BuildImageDictionary();
+
+    }
+
+    private void BuildImageDictionary()
+    {
+        spriteDictionary.Add(EnemyType.Carrot, carrotSprite);
+        spriteDictionary.Add(EnemyType.Daikon, daikonSprite);
+        spriteDictionary.Add(EnemyType.Garlic, garlicSprite);
+        spriteDictionary.Add(EnemyType.Onion, onionSprite);
     }
 
     public void UpdateGoalUI(RecipeGoal[] recipeGoals)
@@ -27,16 +45,14 @@ public class UIManager : MonoBehaviour
                 if (j < veggieGoalsUIs.Length)
                 {
                     //if Veggie UI superobject already exists
-                    //update veggie icon
-                    veggieGoalsUIs[j].veggieTitle.text = recipeGoals[i].enemyType.ToString();
+                    veggieGoalsUIs[j].veggieSprite.sprite = spriteDictionary[recipeGoals[i].enemyType];
                     veggieGoalsUIs[j].goalNumber.text = (recipeGoals[i].veggieGoal - recipeGoals[i].veggieCount).ToString();
                 }
                 else if (recipeGoals.Length > veggieGoalsUIs.Length)
                 {
                     //need to make new Veggie UI superobject
                     VeggieGoalsUI vGUI = Instantiate(veggieGoalObjRef, veggieGoalsParent).GetComponent<VeggieGoalsUI>();
-                    //update veggie icon
-                    vGUI.veggieTitle.text = recipeGoals[i].enemyType.ToString();
+                    vGUI.veggieSprite.sprite = spriteDictionary[recipeGoals[i].enemyType];
                     vGUI.goalNumber.text = (recipeGoals[i].veggieGoal - recipeGoals[i].veggieCount).ToString();
                 }
             }
@@ -47,6 +63,20 @@ public class UIManager : MonoBehaviour
                     veggieGoalsUIs[j].gameObject.SetActive(false);
                 }
             }
+        }
+
+        veggieGoalsUIs = GetComponentsInChildren<VeggieGoalsUI>();
+        if (veggieGoalsUIs.Length >= 4)
+        {
+            veggieGoalsHoriLayout.spacing = -300;
+        }
+        else if (veggieGoalsUIs.Length == 3)
+        {
+            veggieGoalsHoriLayout.spacing = -400;
+        }
+        else if(veggieGoalsUIs.Length <= 2)
+        {
+            veggieGoalsHoriLayout.spacing = -500;
         }
     }
 }
