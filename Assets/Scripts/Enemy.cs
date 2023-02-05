@@ -124,10 +124,33 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         GameManager.instance.UpdateRecipeGoal(enemyType);
+        runAwayTriggered = false;
+        agent.destination = transform.position;
+        agent.velocity = Vector3.zero;
+        gameObject.tag = "Untagged";
+        gameObject.layer = 0;
+        StartCoroutine(DeathAnimation());
     }
 
     public void HealthLost()
     {
         ReduceMaxSpeed();
+    }
+
+    private IEnumerator DeathAnimation()
+    {
+        //death sound
+        animator.SetTrigger("Death");
+        yield return new WaitForSeconds(1.78f);
+        float elapsedTime = 0;
+        float waitTime = 1f;
+        while (elapsedTime < waitTime)
+        {
+            agent.baseOffset = Mathf.Lerp(-0.54f, -2.0f, (elapsedTime / waitTime));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        agent.baseOffset = -2.0f;
+        Destroy(this.gameObject);
     }
 }
