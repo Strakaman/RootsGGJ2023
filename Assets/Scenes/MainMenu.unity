@@ -761,7 +761,19 @@ MonoBehaviour:
     m_ActionId: 49d13132-16eb-4900-a0b5-141f38bcc873
     m_ActionName: Player/Pause[/DualSenseGamepadHID/start,/Keyboard/escape]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1827270825}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: StartHunt
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 4e289907-03e5-43cc-a8bc-53a04d582d9e
     m_ActionName: Player/Attack[/DualSenseGamepadHID/buttonWest,/DualSenseGamepadHID/buttonEast,/Mouse/leftButton,/DualSenseGamepadHID/buttonSouth]
   - m_PersistentCalls:
