@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
         {
             if (recipeGoal.enemyType == eT)
             {
+                AudioManager.instance.PlayVoiceLine("RecipeUpdate");
                 recipeGoal.IncreaseVeggieCount();
             }
         }
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
 
         if (AllGoalsAreCompleted())
         {
+            AudioManager.instance.PlayVoiceLine("RecipeComplete");
             isRoundWon = true;
             Debug.Log("Round Won");
         }
