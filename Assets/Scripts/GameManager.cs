@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     {
         AudioManager.instance.PlayVoiceLine("MatchStart");
         NewGame();
+        UIManager.instance.UpdateGoalUI(recipeGoals.ToArray());
     }
 
     private void NewGame()
@@ -26,11 +27,6 @@ public class GameManager : MonoBehaviour
         recipeGoals.Add(new RecipeGoal(EnemyType.Carrot, 1));
         recipeGoals.Add(new RecipeGoal(EnemyType.Garlic, 1));
         recipeGoals.Add(new RecipeGoal(EnemyType.Onion, 1));
-
-        foreach (RecipeGoal recipeGoal in recipeGoals)
-        {
-            Debug.Log($"Need to kill {recipeGoal.veggieGoal} {recipeGoal.enemyType}s to complete this goal.");
-        }
     }
 
     public void UpdateRecipeGoal(EnemyType eT)
@@ -42,6 +38,8 @@ public class GameManager : MonoBehaviour
                 recipeGoal.IncreaseVeggieCount();
             }
         }
+
+        UIManager.instance.UpdateGoalUI(recipeGoals.ToArray());
 
         if (AllGoalsAreCompleted())
         {
