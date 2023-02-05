@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         combatStateMachine = GetComponent<CombatStateMachine>();
+        myHealth.AddDeathListener(Die);
+        myHealth.AddHealthLostListener(HealthLost);
     }
 
     // Update is called once per frame
