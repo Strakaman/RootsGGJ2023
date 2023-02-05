@@ -21,11 +21,11 @@ public class GameManager : MonoBehaviour
 
     private void NewGame()
     {
-        isRoundWon = false;
+        isRoundWon = false; 
         //hard coded for now for easy testing
-        recipeGoals.Add(new RecipeGoal(EnemyType.Onion, 1));
         recipeGoals.Add(new RecipeGoal(EnemyType.Carrot, 1));
         recipeGoals.Add(new RecipeGoal(EnemyType.Garlic, 1));
+        recipeGoals.Add(new RecipeGoal(EnemyType.Onion, 1));
 
         foreach (RecipeGoal recipeGoal in recipeGoals)
         {
