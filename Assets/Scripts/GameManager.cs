@@ -26,9 +26,9 @@ public class GameManager : MonoBehaviour
         isRecipeComplete = false;
         //hard coded for now for easy testing
         //recipeGoals.Add(new RecipeGoal(EnemyType.Carrot, 1));
-        recipeGoals.Add(new RecipeGoal(EnemyType.Carrot, Random.Range(3, 5)));
-        recipeGoals.Add(new RecipeGoal(EnemyType.Garlic, Random.Range(3, 5)));
-        recipeGoals.Add(new RecipeGoal(EnemyType.Onion, Random.Range(3, 5)));
+        recipeGoals.Add(new RecipeGoal(EnemyType.Carrot, Random.Range(1, 3)));
+        recipeGoals.Add(new RecipeGoal(EnemyType.Garlic, Random.Range(1, 3)));
+        recipeGoals.Add(new RecipeGoal(EnemyType.Onion, Random.Range(1, 3)));
         SpawnManager.instance.SpawnVegetables(recipeGoals.ToArray());
     }
 

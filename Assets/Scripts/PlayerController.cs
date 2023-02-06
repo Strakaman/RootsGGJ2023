@@ -95,7 +95,6 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("Forward direction of Camera" + mainCam.transform.forward);
         //Debug.Log("Right direction of Camera" + mainCam.transform.right);
 
-
         return finalVector;
     }
     private void LateUpdate()

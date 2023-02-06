@@ -12,7 +12,10 @@ public class CombatStateMachine : StateMachine
     {
         if (callbackContext.performed)
         {
-            //Debug.Log("Attack pressed");
+            if (CurrentState==null)
+            {            
+                return;
+            }
             CurrentState.ProcessInput(callbackContext.action);
         }
     }
@@ -24,6 +27,10 @@ public class CombatStateMachine : StateMachine
 
     public bool IsAttacking()
     {
+        if (CurrentState == null)
+        {
+            return false;
+        }
         return !CurrentState.Equals(mainStateType);
     }
 }
