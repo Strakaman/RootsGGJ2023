@@ -88,6 +88,15 @@ public class GameManager : MonoBehaviour
         return Mathf.Sqrt(totSqr);
     }
 
+    public float Pythag(Vector3 pointA)
+    {
+        float totSqr = 0;
+        totSqr += Mathf.Pow(pointA.x, 2);
+        totSqr += Mathf.Pow(pointA.y, 2);
+        totSqr += Mathf.Pow(pointA.z, 2);
+        return Mathf.Sqrt(totSqr);
+    }
+
     private void TriggerBossFight()
     {
         recipeGoals.Add(new RecipeGoal(EnemyType.Daikon, 1));

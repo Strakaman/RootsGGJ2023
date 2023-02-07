@@ -18,6 +18,7 @@ public class DaikonRadish : Enemy
     protected bool playerReached = false;
 
     protected bool attackingPlayer = false;
+
     // Start is called before the first frame update
 
     protected override void Start()
@@ -61,7 +62,11 @@ public class DaikonRadish : Enemy
 
     void UpdateAnimator()
     {
-        animator.SetFloat("Speed", agent.speed);
+
+/*        Vector3 mySpeed = myRigidBody.velocity;
+        //mySpeed.y = 0;
+        float myV = GameManager.instance.Pythag(mySpeed);
+        animator.SetFloat("Speed", myV);*/
     }
 
     protected void GoAfterPlayer()
@@ -71,6 +76,7 @@ public class DaikonRadish : Enemy
             Debug.Log("I'm going after the player");
             goAfterPlayerTriggered = true;
             agent.destination = playerCharacter.transform.position;
+            animator.SetBool("Running", true);
         }
     }
 
@@ -100,10 +106,15 @@ public class DaikonRadish : Enemy
         {
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
-                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                if (!agent.hasPath || agent.velocity.sqrMagnitude < Mathf.Epsilon)
                 {
                     Debug.Log("I've reached the player");
                     playerReached = true;
+                    animator.SetBool("Running", false);
+                }
+                else
+                {
+                    Debug.Log("I'm falling down into my shadow");
                 }
             }
         }
@@ -124,6 +135,11 @@ public class DaikonRadish : Enemy
     }
 
     void FootL()
+    {
+
+    }
+
+    void FootR()
     {
 
     }

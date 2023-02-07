@@ -34,11 +34,14 @@ public class Enemy : MonoBehaviour
 
     protected bool isDead = false;
 
+    protected Rigidbody myRigidBody;
+
     protected virtual void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         myHealth = GetComponent<Health>();
+        myRigidBody = GetComponent<Rigidbody>();
         playerReference = GameManager.instance.playerReference;
     }
 
