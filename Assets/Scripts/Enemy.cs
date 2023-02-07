@@ -145,7 +145,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            AudioManager.instance.PlayVoiceLine("DaikonDeath");
+            AudioManager.instance.PlayDaikonDeath();
         }
         StartCoroutine(DeathAnimation());
     }

@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetTrigger("Respawn");
         myHealth.InitializeHealth();
-        SpawnManager.instance.SpawnPlayer(this);
+        SpawnManager.instance.MovePlayerToStartPosition(this);
         gameObject.tag = "Player";
         gameObject.layer = 8;
         AudioManager.instance.PlayVoiceLine("MatchStart");

@@ -137,6 +137,11 @@ public class AudioManager : MonoBehaviour
 		PlayVoiceLine(soundName);
 	}
 
+	public void PlayDaikonDeath()
+    {
+		sfx2DSource.PlayOneShot(library.GetClipFromName("DaikonDeath"), 0.2f * masterVolumePercent);
+	}
+
 
 	IEnumerator AnimateMusicCrossfade(float duration)
 	{

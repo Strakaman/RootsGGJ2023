@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         recipeGoals.Add(new RecipeGoal(EnemyType.Carrot, Random.Range(1, 3)));
         recipeGoals.Add(new RecipeGoal(EnemyType.Garlic, Random.Range(1, 3)));
         recipeGoals.Add(new RecipeGoal(EnemyType.Onion, Random.Range(1, 3)));
-        SpawnManager.instance.SpawnPlayer(playerReference.GetComponent<PlayerController>());
+        SpawnManager.instance.MovePlayerToStartPosition(playerReference.GetComponent<PlayerController>());
         SpawnManager.instance.SpawnVegetables(recipeGoals.ToArray());
     }
 

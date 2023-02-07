@@ -34,7 +34,7 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-    public void SpawnPlayer(PlayerController pC)
+    public void MovePlayerToStartPosition(PlayerController pC)
     {
         //flashing active state here keeps the player from clipping through the stage (occasional bug)
         pC.gameObject.SetActive(false);
