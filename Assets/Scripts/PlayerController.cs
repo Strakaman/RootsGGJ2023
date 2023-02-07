@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     public CinemachineInputProvider cameraControls;
     public CinemachineFreeLook cineMachineFreeLook;
     protected Health myHealth;
-    protected bool isDead = false;
+    public bool isDead = false;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -69,6 +69,11 @@ public class PlayerController : MonoBehaviour
         {
             characterController.Move(moveVector);
         }
+
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    TakeHit(3);
+        //}
     }
 
     private Vector3 getInputOnlyMovementVector()
@@ -135,6 +140,7 @@ public class PlayerController : MonoBehaviour
         gameObject.tag = "Untagged";
         gameObject.layer = 0;
         AudioManager.instance.PlayVoiceLine("PlayerDeath", 1);
+        GameManager.instance.PlayerDeath();
         StartCoroutine(DeathAnimation());
     }
 
@@ -143,10 +149,21 @@ public class PlayerController : MonoBehaviour
         AudioManager.instance.PlayVoiceLine("PlayerHit", 1);
     }
 
+    public void ResetPlayer()
+    {
+        animator.SetTrigger("Respawn");
+        myHealth.InitializeHealth();
+        SpawnManager.instance.SpawnPlayer(this);
+        gameObject.tag = "Player";
+        gameObject.layer = 8;
+        AudioManager.instance.PlayVoiceLine("MatchStart");
+        isDead = false;
+    }
+
     private IEnumerator DeathAnimation()
     {
         animator.SetTrigger("Death");
-        yield return new WaitForSeconds(1.78f);
+        yield return new WaitForSeconds(1.7f);
         float elapsedTime = 0;
         float waitTime = 1f;
         while (elapsedTime < waitTime)

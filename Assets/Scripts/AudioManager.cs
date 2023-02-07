@@ -103,6 +103,7 @@ public class AudioManager : MonoBehaviour
 
 	public void StopMusic()
     {
+		sfx2DSource.Stop();
 		foreach(AudioSource audioSource in musicSources)
         {
 			audioSource.Stop();

@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
         recipeGoals.Add(new RecipeGoal(EnemyType.Carrot, Random.Range(1, 3)));
         recipeGoals.Add(new RecipeGoal(EnemyType.Garlic, Random.Range(1, 3)));
         recipeGoals.Add(new RecipeGoal(EnemyType.Onion, Random.Range(1, 3)));
+        SpawnManager.instance.SpawnPlayer(playerReference.GetComponent<PlayerController>());
         SpawnManager.instance.SpawnVegetables(recipeGoals.ToArray());
     }
 
@@ -92,5 +93,23 @@ public class GameManager : MonoBehaviour
         recipeGoals.Add(new RecipeGoal(EnemyType.Daikon, 1));
         UIManager.instance.UpdateGoalUI(recipeGoals.ToArray());
         SpawnManager.instance.SpawnDaikon();
+    }
+
+    public void PlayerDeath()
+    {
+        StartCoroutine(ResetGame());
+    }
+
+    private IEnumerator ResetGame()
+    {
+        UIManager.instance.PlayerDeathFade();
+        yield return new WaitForSeconds(2f);
+        SpawnManager.instance.DestroyDaikon();
+        yield return new WaitForSeconds(2f);
+        playerReference.GetComponent<PlayerController>().ResetPlayer();
+        yield return new WaitForSeconds(1f);
+        SpawnManager.instance.SpawnDaikon();
+        FindObjectOfType<BGMPlayer>().PlayASong();
+        UIManager.instance.ResetFadeReload();
     }
 }

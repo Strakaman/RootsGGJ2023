@@ -33,7 +33,7 @@ public class DaikonRadish : Enemy
     // Update is called once per frame
     protected override void Update()
     {
-        if (isDead) { return; }
+        if (isDead || playerCharacter.isDead) { return; }
 
         timeSinceLastAttack += Time.deltaTime;
         if (attackingPlayer) { return; }

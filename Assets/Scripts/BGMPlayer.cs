@@ -24,7 +24,7 @@ public class BGMPlayer : MonoBehaviour
         PlayASong();
     }
 
-    void PlayASong()
+    public void PlayASong()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {

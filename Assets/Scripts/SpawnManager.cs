@@ -15,6 +15,8 @@ public class SpawnManager : MonoBehaviour
     public GameObject garlicEnemy;
     public GameObject onionEnemy;
 
+    public GameObject activeDaikon = null;
+
     private void Awake()
     {
         instance = this;
@@ -30,6 +32,14 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SpawnPlayer(PlayerController pC)
+    {
+        //flashing active state here keeps the player from clipping through the stage (occasional bug)
+        pC.gameObject.SetActive(false);
+        pC.gameObject.transform.position = playerSpawn.position;
+        pC.gameObject.SetActive(true);
     }
 
     public void SpawnVegetables(RecipeGoal[] recipeGoals)
@@ -59,6 +69,8 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnDaikon()
     {
+        DestroyDaikon();
+
         Vector3 playerPos = GameManager.instance.playerReference.transform.position;
         Dictionary<float, Transform> distancesToSpawnPoints = new Dictionary<float, Transform>();
         float biggestDistance = Mathf.NegativeInfinity;
@@ -73,6 +85,14 @@ public class SpawnManager : MonoBehaviour
             }
         }
 
-        Instantiate(daikonEnemy, distancesToSpawnPoints[biggestDistance].position, Quaternion.identity);
+        activeDaikon = Instantiate(daikonEnemy, distancesToSpawnPoints[biggestDistance].position, Quaternion.identity);
+    }
+
+    public void DestroyDaikon()
+    {
+        if (activeDaikon != null)
+        {
+            Destroy(activeDaikon.gameObject);
+        }
     }
 }

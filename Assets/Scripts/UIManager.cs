@@ -28,9 +28,14 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void PlayerDeathFade()
+    {
+        StartCoroutine(FadeToBlackReload());
+    }
+
     public void EndGameSequence()
     {
-        StartCoroutine(FadeInBlack());
+        StartCoroutine(FadeInBlackEnding());
 
     }
     private void Start()
@@ -90,9 +95,35 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    IEnumerator FadeInBlack()
+    IEnumerator FadeToBlackReload()
     {
+        yield return new WaitForSeconds(1f);
+
+        float fadeTime = 2;
+        float currentFadeTime = 0;
+        Color bgColor = blackFadeBackground.color;
+        blackFadeBackground.gameObject.SetActive(true);
+        AudioManager.instance.StopMusic();
+        while (currentFadeTime < fadeTime)
+        {
+            currentFadeTime += Time.deltaTime;
+            float alpha = Mathf.Lerp(0f, 1f, (currentFadeTime / fadeTime));
+            blackFadeBackground.color = new Color(bgColor.r, bgColor.g, bgColor.b, alpha);
+            yield return null;
+        }
         yield return new WaitForSeconds(2f);
+    }
+
+    public void ResetFadeReload()
+    {
+        Color bgColor = blackFadeBackground.color;
+        blackFadeBackground.color = new Color(bgColor.r, bgColor.g, bgColor.b, 0);
+        blackFadeBackground.gameObject.SetActive(false);
+    }
+
+    IEnumerator FadeInBlackEnding()
+    {
+        yield return new WaitForSeconds(4.5f);
 
         float fadeTime = 2;
         float currentFadeTime = 0;

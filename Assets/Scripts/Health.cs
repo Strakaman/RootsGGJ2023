@@ -44,7 +44,7 @@ public class Health : MonoBehaviour
     }
 
     //Makes sure the starting health and speed are properly set
-    protected void InitializeHealth()
+    public void InitializeHealth()
     {
         currentHealth = maxHealth;
     }

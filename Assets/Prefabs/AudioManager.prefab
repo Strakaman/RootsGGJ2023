@@ -160,7 +160,7 @@ MonoBehaviour:
   - groupID: Ending
     group:
     - {fileID: 8300000, guid: e9e2434d02a9c3842bd3c4762d3ef26a, type: 3}
-  - groupID: Spllater
+  - groupID: Splatter
     group:
     - {fileID: 8300000, guid: 8ec463fce4f864840ab8024df6af6bc9, type: 3}
 --- !u!114 &6963872606448863358
