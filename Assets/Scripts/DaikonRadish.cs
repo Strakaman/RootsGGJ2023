@@ -117,6 +117,10 @@ public class DaikonRadish : Enemy
                     Debug.Log("I'm falling down into my shadow");
                 }
             }
+            else
+            {
+                GoAfterPlayer();
+            }
         }
     }
     
